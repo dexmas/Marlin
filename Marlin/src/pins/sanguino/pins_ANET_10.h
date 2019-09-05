@@ -142,6 +142,7 @@
 //
 #define SDSS               31
 #define LED_PIN            -1
+#define SD_DETECT_PIN      27
 
 /**
  * LCD / Controller
