@@ -106,15 +106,13 @@
 // Misc. Functions
 //
 #define SDSS               PB12
-#define LED_PIN            PA6
-//#define LED_PIN          PA7
+//#define LED_PIN            PA6
 #define KILL_PIN           PB1
 
 //
 // LCD / Controller
 //
 #define SD_DETECT_PIN      PC5
-//#define SD_DETECT_PIN      PA8  // SDIO SD_DETECT_PIN, external SDIO card reader only
 
 #define BEEPER_PIN         PD10
 #define LCD_PINS_RS        PE15
@@ -127,5 +125,8 @@
 #define BTN_EN1            PD4
 #define BTN_EN2            PD13
 
-#define DOGLCD_CS          LCD_PINS_D5
-#define DOGLCD_A0          LCD_PINS_D6
+#define DOGLCD_CS          LCD_PINS_ENABLE
+#define DOGLCD_A0          LCD_PINS_RS
+#define LCD_RESET_PIN	   LCD_PINS_D4
+#define NEOPIXEL_PIN	   LCD_PINS_D5
+#define LCD_CONTRAST	   255

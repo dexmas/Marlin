@@ -639,7 +639,7 @@
 
     #else
 
-      /*const unsigned char status_bed_bmp[] PROGMEM = {
+      const unsigned char status_bed_bmp[] PROGMEM = {
         B00000100,B00010000,B01000000,
         B00000010,B00001000,B00100000,
         B00000010,B00001000,B00100000,
@@ -652,7 +652,7 @@
         B00000000,B00000000,B00000000,
         B00011111,B11111111,B11111000,
         B00011111,B11111111,B11111000
-      };*/
+      };
 
     #endif
 
@@ -735,7 +735,7 @@
 
   // Provide a fan animation if none exists
 
-  /*#if STATUS_FAN_FRAMES <= 2
+  #if STATUS_FAN_FRAMES <= 2
 
     #define STATUS_FAN_Y      2
     #define STATUS_FAN_WIDTH 20
@@ -1152,7 +1152,7 @@
 
     #endif // !STATUS_ALT_FAN_BITMAP
 
-  #endif*/
+  #endif
 
 #endif
 
@@ -1419,13 +1419,13 @@
     #define STATUS_BED_X (128 - (STATUS_CHAMBER_BYTEWIDTH + STATUS_FAN_BYTEWIDTH + STATUS_BED_BYTEWIDTH) * 8)
   #endif
 
-  /*#ifndef STATUS_BED_HEIGHT
+  #ifndef STATUS_BED_HEIGHT
     #ifdef STATUS_BED_ANIM
       #define STATUS_BED_HEIGHT(S) ((S) ? sizeof(status_bed_on_bmp) / (STATUS_BED_BYTEWIDTH) : sizeof(status_bed_bmp) / (STATUS_BED_BYTEWIDTH))
     #else
       #define STATUS_BED_HEIGHT(S) (sizeof(status_bed_bmp) / (STATUS_BED_BYTEWIDTH))
     #endif
-  #endif*/
+  #endif
 
   #ifndef STATUS_BED_Y
     #define STATUS_BED_Y(S) (20 - STATUS_BED_HEIGHT(S))
@@ -1435,10 +1435,10 @@
     #define STATUS_BED_TEXT_X (STATUS_BED_X + 11)
   #endif
 
-  /*static_assert(
+  static_assert(
     sizeof(status_bed_bmp) == (STATUS_BED_BYTEWIDTH) * (STATUS_BED_HEIGHT(0)),
     "Status bed bitmap (status_bed_bmp) dimensions don't match data."
-  );*/
+  );
   #ifdef STATUS_BED_ANIM
     static_assert(
       sizeof(status_bed_on_bmp) == (STATUS_BED_BYTEWIDTH) * (STATUS_BED_HEIGHT(1)),
@@ -1470,7 +1470,7 @@
   #ifndef STATUS_FAN_TEXT_Y
     #define STATUS_FAN_TEXT_Y 28
   #endif
-  /*#ifndef STATUS_FAN_HEIGHT
+  #ifndef STATUS_FAN_HEIGHT
     #define STATUS_FAN_HEIGHT (sizeof(status_fan0_bmp) / (STATUS_FAN_BYTEWIDTH))
   #endif
   #define FAN_BMP_SIZE (STATUS_FAN_BYTEWIDTH) * (STATUS_FAN_HEIGHT)
@@ -1483,5 +1483,5 @@
         static_assert(sizeof(status_fan3_bmp) == FAN_BMP_SIZE, "Status fan bitmap (status_fan3_bmp) dimensions don't match data.");
       #endif
     #endif
-  #endif*/
+  #endif
 #endif
