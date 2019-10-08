@@ -225,11 +225,11 @@ FORCE_INLINE void _draw_heater_status(const heater_ind_t heater, const bool blin
   if (PAGE_CONTAINS(28 - INFO_FONT_ASCENT, 28 - 1))
     _draw_centered_temp(temp + 0.5f, tx, 28);
 
-  /*if (IFBED(STATIC_BED && BED_DOT, STATIC_HOTEND && HOTEND_DOT) && PAGE_CONTAINS(17, 19)) {
+  if (IFBED(STATIC_BED && BED_DOT, STATIC_HOTEND && HOTEND_DOT) && PAGE_CONTAINS(17, 19)) {
     u8g.setColorIndex(0); // set to white on black
     u8g.drawBox(tx, IFBED(20-2, 20-3), 2, 2);
     u8g.setColorIndex(1); // restore black on white
-  }*/
+  }
 
 }
 
@@ -261,7 +261,7 @@ FORCE_INLINE void _draw_heater_status(const heater_ind_t heater, const bool blin
 // Homed but unknown... '123' <-> '   '.
 // Homed and known, display constantly.
 //
-/*FORCE_INLINE void _draw_axis_value(const AxisEnum axis, const char *value, const bool blink) {
+FORCE_INLINE void _draw_axis_value(const AxisEnum axis, const char *value, const bool blink) {
   const uint8_t offs = (XYZ_SPACING) * axis;
   lcd_put_wchar(X_LABEL_POS + offs, XYZ_BASELINE, 'X' + axis);
   lcd_moveto(X_VALUE_POS + offs, XYZ_BASELINE);
@@ -279,7 +279,7 @@ FORCE_INLINE void _draw_heater_status(const heater_ind_t heater, const bool blin
           lcd_put_u8str(value);
     }
   }
-}*/
+}
 
 #if ENABLED(MARLIN_DEV_MODE)
   uint16_t count_renders = 0;
@@ -292,7 +292,7 @@ void MarlinUI::draw_status_screen() {
     if (first_page) count_renders++;
   #endif
 
-  //static char xstring[5], ystring[5], zstring[8];
+  static char xstring[5], ystring[5], zstring[8];
   #if ENABLED(FILAMENT_LCD_DISPLAY)
     static char wstring[5], mstring[4];
   #endif
@@ -312,9 +312,9 @@ void MarlinUI::draw_status_screen() {
       #endif
       heat_bits = new_bits;
     #endif
-    //strcpy(xstring, ftostr4sign(LOGICAL_X_POSITION(current_position[X_AXIS])));
-    //strcpy(ystring, ftostr4sign(LOGICAL_Y_POSITION(current_position[Y_AXIS])));
-    //strcpy(zstring, ftostr52sp(LOGICAL_Z_POSITION(current_position[Z_AXIS])));
+    strcpy(xstring, ftostr4sign(LOGICAL_X_POSITION(current_position[X_AXIS])));
+    strcpy(ystring, ftostr4sign(LOGICAL_Y_POSITION(current_position[Y_AXIS])));
+    strcpy(zstring, ftostr52sp(LOGICAL_Z_POSITION(current_position[Z_AXIS])));
     #if ENABLED(FILAMENT_LCD_DISPLAY)
       strcpy(wstring, ftostr12ns(filament_width_meas));
       strcpy(mstring, i16tostr3(100.0 * (
@@ -346,7 +346,7 @@ void MarlinUI::draw_status_screen() {
       u8g.drawBitmapP(STATUS_HEATERS_X, STATUS_HEATERS_Y, STATUS_HEATERS_BYTEWIDTH, STATUS_HEATERS_HEIGHT, status_heaters_bmp);
   #endif
 
-  /*#if DO_DRAW_BED
+  #if DO_DRAW_BED
     #if ANIM_BED
       #define BED_BITMAP(S) ((S) ? status_bed_on_bmp : status_bed_bmp)
     #else
@@ -355,7 +355,7 @@ void MarlinUI::draw_status_screen() {
     const uint8_t bedy = STATUS_BED_Y(BED_ALT()), bedh = STATUS_BED_HEIGHT(BED_ALT());
     if (PAGE_CONTAINS(bedy, bedy + bedh - 1))
       u8g.drawBitmapP(STATUS_BED_X, bedy, STATUS_BED_BYTEWIDTH, bedh, BED_BITMAP(BED_ALT()));
-  #endif*/
+  #endif
 
   #if DO_DRAW_CHAMBER
     #if ANIM_CHAMBER
@@ -371,7 +371,7 @@ void MarlinUI::draw_status_screen() {
       );
   #endif
 
-  /*#if DO_DRAW_FAN
+  #if DO_DRAW_FAN
     #if STATUS_FAN_FRAMES > 2
       static bool old_blink;
       static uint8_t fan_frame;
@@ -395,7 +395,7 @@ void MarlinUI::draw_status_screen() {
         #endif
         status_fan0_bmp
       );
-  #endif*/
+  #endif
 
   //
   // Temperature Graphics and Info
@@ -472,11 +472,11 @@ void MarlinUI::draw_status_screen() {
       // Progress bar solid part
       //
 
-      //if (PAGE_CONTAINS(50, 51))     // 50-51 (or just 50)
-      //  u8g.drawBox(
-      //    PROGRESS_BAR_X + 1, 50,
-      //    (uint16_t)((PROGRESS_BAR_WIDTH - 2) * progress * 0.01), 2
-      //  );
+      if (PAGE_CONTAINS(50, 51))     // 50-51 (or just 50)
+        u8g.drawBox(
+          PROGRESS_BAR_X + 1, 50,
+          (uint16_t)((PROGRESS_BAR_WIDTH - 2) * progress * 0.01), 2
+        );
 
       //
       // SD Percent Complete
@@ -515,7 +515,7 @@ void MarlinUI::draw_status_screen() {
   // XYZ Coordinates
   //
 
-  /*#if ENABLED(XYZ_HOLLOW_FRAME)
+  #if ENABLED(XYZ_HOLLOW_FRAME)
     #define XYZ_FRAME_TOP 29
     #define XYZ_FRAME_HEIGHT INFO_FONT_ASCENT + 3
   #else
@@ -570,7 +570,7 @@ void MarlinUI::draw_status_screen() {
         u8g.setColorIndex(1); // black on white
       #endif
     }
-  }*/
+  }
 
   //
   // Feedrate
