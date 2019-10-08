@@ -127,5 +127,8 @@
 #define DOGLCD_CS          LCD_PINS_ENABLE
 #define DOGLCD_A0          LCD_PINS_RS
 #define LCD_RESET_PIN	   LCD_PINS_D4
-#define NEOPIXEL_PIN	   LCD_PINS_D5
 #define LCD_CONTRAST	   255
+
+#if ENABLED(FYSETC_MINI_12864_2_1)
+  #define NEOPIXEL_PIN    LCD_PINS_D5
+#endif
