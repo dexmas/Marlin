@@ -129,7 +129,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BLACK_STM32F407VE
+  #define MOTHERBOARD BOARD_ANET_EX_STM32F407VE
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu

@@ -508,6 +508,8 @@
   #include "stm32/pins_BIGTREE_SKR_PRO_V1.1.h"  // STM32F4                                env:BIGTREE_SKR_PRO
 #elif MB(BIGTREE_BTT002_V1_0)
   #include "stm32/pins_BIGTREE_BTT002_V1.0.h"   // STM32F4                                env:BIGTREE_BTT002
+#elif MB(ANET_EX_STM32F407VE)
+  #include "stm32/pins_ANET_EX_STM32F407VE.h"     // STM32F4                                env:STM32F407VE_black
 
 //
 // ARM Cortex M7

@@ -54,7 +54,7 @@
 //
 #define X_MIN_PIN          PC13
 #define X_MAX_PIN          PA15
-#define Y_MIN_PIN          PA5
+#define Y_MIN_PIN          PE3
 #define Y_MAX_PIN          PD12
 #define Z_MIN_PIN          PD14
 #define Z_MAX_PIN          PD15
@@ -63,7 +63,7 @@
 // Steppers
 //
 #define X_STEP_PIN         PC4
-#define X_DIR_PIN          PA4
+#define X_DIR_PIN          PE4
 #define X_ENABLE_PIN       PE7
 
 #define Y_STEP_PIN         PE5
@@ -106,15 +106,12 @@
 // Misc. Functions
 //
 #define SDSS               PB12
-#define LED_PIN            PA6
-//#define LED_PIN          PA7
 #define KILL_PIN           PB1
 
 //
 // LCD / Controller
 //
 #define SD_DETECT_PIN      PC5
-//#define SD_DETECT_PIN      PA8  // SDIO SD_DETECT_PIN, external SDIO card reader only
 
 #define BEEPER_PIN         PD10
 #define LCD_PINS_RS        PE15
@@ -127,5 +124,8 @@
 #define BTN_EN1            PD4
 #define BTN_EN2            PD13
 
-#define DOGLCD_CS          LCD_PINS_D5
-#define DOGLCD_A0          LCD_PINS_D6
+#define DOGLCD_CS          LCD_PINS_ENABLE
+#define DOGLCD_A0          LCD_PINS_RS
+#define LCD_RESET_PIN	   LCD_PINS_D4
+#define NEOPIXEL_PIN	   LCD_PINS_D5
+#define LCD_CONTRAST	   255
