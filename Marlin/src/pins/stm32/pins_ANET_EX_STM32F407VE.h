@@ -30,18 +30,15 @@
 #if !defined(STM32F4) && !defined(STM32F4xx)
   #error "Oops! Select an STM32F4 board in 'Tools > Board.'"
 #elif HOTENDS > 2 || E_STEPPERS > 2
-  #error "Black STM32F4VET6 supports up to 2 hotends / E-steppers."
+  #error "STM32F4VET6 supports up to 2 hotends / E-steppers."
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "Black STM32F4VET6"
+  #define BOARD_INFO_NAME "Anet EX"
 #endif
 
-#define DEFAULT_MACHINE_NAME "STM32F407VET6"
+#define DEFAULT_MACHINE_NAME "AnetEX"
 
-//#define I2C_EEPROM
-//#define E2END 0x1FFF // 8KB
-//#define SRAM_EEPROM_EMULATION
 #define FLASH_EEPROM_EMULATION
 
 //
