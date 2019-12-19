@@ -132,15 +132,15 @@ extern "C" {
 //#define DACC_RESOLUTION         12
 
 // PWM resolution
-#define PWM_RESOLUTION          8
-#define PWM_FREQUENCY           20000
-#define PWM_MAX_DUTY_CYCLE      255
+//#define PWM_RESOLUTION          8
+//#define PWM_FREQUENCY           20000
+//#define PWM_MAX_DUTY_CYCLE      255
 
 // SPI Definitions
-#define PIN_SPI_SS              PA4
-#define PIN_SPI_MOSI            PA7
-#define PIN_SPI_MISO            PA6
-#define PIN_SPI_SCK             PA5
+#define PIN_SPI_MOSI            PB15
+#define PIN_SPI_MISO            PB14
+#define PIN_SPI_SCK             PB13
+#define PIN_SPI_SS              PB12
 
 // I2C Definitions
 #define PIN_WIRE_SDA            PB7

@@ -111,27 +111,19 @@
 //
 #define SD_DETECT_PIN      PC5
 
-#define BEEPER_PIN         PD10
-#define LCD_PINS_RS        PE15
-#define LCD_PINS_ENABLE    PD8
-#define LCD_PINS_D4        PE10
-#define LCD_PINS_D5        PE12
-#define LCD_PINS_D6        PD1
-#define LCD_PINS_D7        PE8
-#define BTN_ENC            PD9
+#define BEEPER_PIN         PD11
+#define BTN_ENC            PC9
 #define BTN_EN1            PD4
 #define BTN_EN2            PD13
 
-//#define FORCE_SOFT_SPI
-#define DOGLCD_CS          LCD_PINS_ENABLE
-#define DOGLCD_A0          LCD_PINS_D4
-#define DOGLCD_MOSI        PA7
-#define DOGLCD_SCK         PA5
-#define LCD_RESET_PIN	     LCD_PINS_RS
+#define DOGLCD_CS          PD8
+#define DOGLCD_A0          PD9
+
+#define LCD_RESET_PIN	     PD10
 #define LCD_CONTRAST	     255
 
 #if ENABLED(FYSETC_MINI_12864_2_1)
-  #define NEOPIXEL_PIN     LCD_PINS_D5
+  #define NEOPIXEL_PIN     PA12
 #endif
 
 #if HAS_GRAPHICAL_LCD
