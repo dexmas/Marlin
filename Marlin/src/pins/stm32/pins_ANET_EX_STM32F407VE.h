@@ -120,7 +120,7 @@
 #define DOGLCD_A0          PD9
 
 #define LCD_RESET_PIN	     PD11
-#define LCD_CONTRAST	     255
+#define NO_LCD_REINIT      // Suppress LCD re-initialization
 
 #if ENABLED(FYSETC_MINI_12864_2_1)
   #define NEOPIXEL_PIN     PC9
