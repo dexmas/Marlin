@@ -151,7 +151,7 @@ extern "C" {
 #define TIMER_TONE              TIM6
 
 // Do not use basic timer: OC is required
-#define TIMER_SERVO             TIM2  //TODO: advanced-control timers don't work
+#define TIMER_SERVO             TIM3  //TODO: advanced-control timers don't work
 
 // UART Definitions
 // Define here Serial instance number to map on Serial generic name

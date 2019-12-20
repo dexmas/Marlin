@@ -50,11 +50,11 @@
 //
 // Limit Switches
 //
-#define X_MIN_PIN          PC13
-#define X_MAX_PIN          PA15
-#define Y_MIN_PIN          PE3
+#define X_MIN_PIN          PB11
+#define X_MAX_PIN          PC3
+#define Y_MIN_PIN          PE15
 #define Y_MAX_PIN          PD12
-#define Z_MIN_PIN          PD14
+#define Z_MIN_PIN          PB10
 #define Z_MAX_PIN          PD15
 
 //
@@ -83,19 +83,19 @@
 //
 // Temperature Sensors
 //
-#define TEMP_0_PIN         PC0  // T0
-#define TEMP_1_PIN         PC1  // T1
-#define TEMP_BED_PIN       PC2  // TB
-#define TEMP_CHAMBER_PIN   PC3  // TC
+#define TEMP_0_PIN         PA3  // T0
+#define TEMP_1_PIN         PA4  // T1
+#define TEMP_BED_PIN       PA5  // TB
+#define TEMP_CHAMBER_PIN   PB0  // TC
 
 //
 // Heaters / Fans
 //
 #define HEATER_0_PIN       PA2  // Heater0
-#define HEATER_1_PIN       PA3  // Heater1
+#define HEATER_1_PIN       PA6  // Heater1
 #define HEATER_BED_PIN     PA1  // Hotbed
 
-#define FAN_PIN            PE9  // Fan0
+#define FAN_PIN            PA0  // Fan0
 #define FAN1_PIN           PE11 // Fan1
 #define FAN2_PIN           PE13 // Fan2
 #define FAN3_PIN           PE14 // Fan3
@@ -109,21 +109,21 @@
 //
 // LCD / Controller
 //
-#define SD_DETECT_PIN      PC5
+#define SD_DETECT_PIN      PA15
 
-#define BEEPER_PIN         PD11
-#define BTN_ENC            PC9
-#define BTN_EN1            PD4
-#define BTN_EN2            PD13
+#define BEEPER_PIN         PA8
+#define BTN_ENC            PC8
+#define BTN_EN1            PA11
+#define BTN_EN2            PD10
 
 #define DOGLCD_CS          PD8
 #define DOGLCD_A0          PD9
 
-#define LCD_RESET_PIN	     PD10
+#define LCD_RESET_PIN	     PD11
 #define LCD_CONTRAST	     255
 
 #if ENABLED(FYSETC_MINI_12864_2_1)
-  #define NEOPIXEL_PIN     PA12
+  #define NEOPIXEL_PIN     PC9
 #endif
 
 #if HAS_GRAPHICAL_LCD
