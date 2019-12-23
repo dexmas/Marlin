@@ -51,7 +51,7 @@
 // Limit Switches
 //
 #define X_MIN_PIN          PB11
-#define X_MAX_PIN          PC3
+#define X_MAX_PIN          PD13
 #define Y_MIN_PIN          PE15
 #define Y_MAX_PIN          PD12
 #define Z_MIN_PIN          PB10
@@ -60,39 +60,39 @@
 //
 // Steppers
 //
-#define X_STEP_PIN         PC4
-#define X_DIR_PIN          PE4
-#define X_ENABLE_PIN       PE7
+#define X_STEP_PIN         PC1
+#define X_DIR_PIN          PC2
+#define X_ENABLE_PIN       PC3
 
-#define Y_STEP_PIN         PE5
-#define Y_DIR_PIN          PE2
-#define Y_ENABLE_PIN       PE6
+#define Y_STEP_PIN         PC14
+#define Y_DIR_PIN          PC15
+#define Y_ENABLE_PIN       PC0
 
-#define Z_STEP_PIN         PD5
-#define Z_DIR_PIN          PD3
-#define Z_ENABLE_PIN       PD6
+#define Z_STEP_PIN         PE5
+#define Z_DIR_PIN          PE6
+#define Z_ENABLE_PIN       PC13
 
-#define E0_STEP_PIN        PD7
-#define E0_DIR_PIN         PD0
-#define E0_ENABLE_PIN      PB9
+#define E0_STEP_PIN        PE4
+#define E0_DIR_PIN         PE3
+#define E0_ENABLE_PIN      PE2
 
-#define E1_STEP_PIN        PE0
-#define E1_DIR_PIN         PE1
-#define E1_ENABLE_PIN      PB8
+#define E1_STEP_PIN        PE1
+#define E1_DIR_PIN         PE0
+#define E1_ENABLE_PIN      PB9
 
 //
 // Temperature Sensors
 //
-#define TEMP_0_PIN         PA3  // T0
+#define TEMP_0_PIN         PA6  // T0
 #define TEMP_1_PIN         PA4  // T1
-#define TEMP_BED_PIN       PA5  // TB
-#define TEMP_CHAMBER_PIN   PB0  // TC
+#define TEMP_BED_PIN       PA3  // TB
+#define TEMP_CHAMBER_PIN   PA7  // TC
 
 //
 // Heaters / Fans
 //
 #define HEATER_0_PIN       PA2  // Heater0
-#define HEATER_1_PIN       PA6  // Heater1
+#define HEATER_1_PIN       PA5  // Heater1
 #define HEATER_BED_PIN     PA1  // Hotbed
 
 #define FAN_PIN            PA0  // Fan0
