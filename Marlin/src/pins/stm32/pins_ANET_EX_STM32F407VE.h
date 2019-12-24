@@ -21,12 +21,6 @@
  */
 #pragma once
 
-/**
- * STM32F407VET6 with RAMPS-like shield
- * 'Black' STM32F407VET6 board - http://wiki.stm32duino.com/index.php?title=STM32F407
- * Shield - https://github.com/jmz52/Hardware
- */
-
 #if !defined(STM32F4) && !defined(STM32F4xx)
   #error "Oops! Select an STM32F4 board in 'Tools > Board.'"
 #elif HOTENDS > 2 || E_STEPPERS > 2
@@ -39,23 +33,23 @@
 
 #define DEFAULT_MACHINE_NAME "AnetEX"
 
-#define FLASH_EEPROM_EMULATION
+#define SRAM_EEPROM_EMULATION
 
 //
 // Servos
 //
 #define SERVO0_PIN         PC6
-#define SERVO1_PIN         PC7
+#define SERVO1_PIN         -1
 
 //
 // Limit Switches
 //
 #define X_MIN_PIN          PB11
-#define X_MAX_PIN          PD13
+#define X_MAX_PIN          -1
 #define Y_MIN_PIN          PE15
-#define Y_MAX_PIN          PD12
+#define Y_MAX_PIN          -1
 #define Z_MIN_PIN          PB10
-#define Z_MAX_PIN          PD15
+#define Z_MAX_PIN          -1
 
 //
 // Steppers
@@ -76,29 +70,29 @@
 #define E0_DIR_PIN         PE3
 #define E0_ENABLE_PIN      PE2
 
-#define E1_STEP_PIN        PE1
-#define E1_DIR_PIN         PE0
-#define E1_ENABLE_PIN      PB9
+#define E1_STEP_PIN        -1
+#define E1_DIR_PIN         -1
+#define E1_ENABLE_PIN      -1
 
 //
 // Temperature Sensors
 //
 #define TEMP_0_PIN         PA6  // T0
-#define TEMP_1_PIN         PA4  // T1
+#define TEMP_1_PIN         -1   // T1
 #define TEMP_BED_PIN       PA3  // TB
-#define TEMP_CHAMBER_PIN   PA7  // TC
+#define TEMP_CHAMBER_PIN   -1   // TC
 
 //
 // Heaters / Fans
 //
 #define HEATER_0_PIN       PA2  // Heater0
-#define HEATER_1_PIN       PA5  // Heater1
+#define HEATER_1_PIN       -1   // Heater1
 #define HEATER_BED_PIN     PA1  // Hotbed
 
 #define FAN_PIN            PA0  // Fan0
-#define FAN1_PIN           PE11 // Fan1
-#define FAN2_PIN           PE13 // Fan2
-#define FAN3_PIN           PE14 // Fan3
+#define FAN1_PIN           -1   // Fan1
+#define FAN2_PIN           -1   // Fan2
+#define FAN3_PIN           -1   // Fan3
 
 //
 // Misc. Functions
