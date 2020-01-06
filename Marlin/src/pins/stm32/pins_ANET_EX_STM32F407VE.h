@@ -33,7 +33,13 @@
 
 #define DEFAULT_MACHINE_NAME "AnetEX"
 
-#define SRAM_EEPROM_EMULATION
+#define DISABLE_DEBUG
+
+#define FLASH_EEPROM_EMULATION
+#define EEPROM_PAGE_SIZE     uint16_t(0x800) // 2KB
+#define EEPROM_START_ADDRESS uint32_t(0x8000000 + (STM32_FLASH_SIZE) * 1024 - 2 * EEPROM_PAGE_SIZE)
+#undef  E2END
+#define E2END                (EEPROM_PAGE_SIZE - 1) // 2KB
 
 //
 // Servos

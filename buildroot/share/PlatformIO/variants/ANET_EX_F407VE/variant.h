@@ -41,7 +41,6 @@ extern "C" {
   #define STM32F4X_GPIO_NUM 82
   #define STM32F4X_ADC_NUM  16
 // Right Side
-#if STM32F4X_PIN_NUM >= 64  //64 pins mcu, 51 gpio
   #define PC13  0
   #define PC14  1 //OSC32_IN
   #define PC15  2 //OSC32_OUT
@@ -93,18 +92,6 @@ extern "C" {
   #define PC3   48 //1:SPI2_MOSI  2:ADC123_IN13
   #define PC4   49 //1:  2:ADC12_IN14
   #define PC5   50 //1:  2:ADC12_IN15
-  #if STM32F4X_PIN_NUM >= 144
-    #define PF3   51 //1:FSMC_A3  2:ADC3_IN9
-    #define PF4   52 //1:FSMC_A4  2:ADC3_IN14
-    #define PF5   53 //1:FSMC_A5  2:ADC3_IN15
-    #define PF6   54 //1:TIM10_CH1  2:ADC3_IN4
-    #define PF7   55 //1:TIM11_CH1  2:ADC3_IN5
-    #define PF8   56 //1:TIM13_CH1  2:ADC3_IN6
-    #define PF9   57 //1;TIM14_CH1  2:ADC3_IN7
-    #define PF10  58 //2:ADC3_IN8
-  #endif
-#endif
-#if STM32F4X_PIN_NUM >= 100  //100 pins mcu, 82 gpio
   #define PE2   (35+STM32F4X_ADC_NUM) //1:FSMC_A23
   #define PE3   (36+STM32F4X_ADC_NUM) //1:FSMC_A19
   #define PE4   (37+STM32F4X_ADC_NUM) //1:FSMC_A20
@@ -136,62 +123,6 @@ extern "C" {
   #define PD7   (63+STM32F4X_ADC_NUM)
   #define PE0   (64+STM32F4X_ADC_NUM)
   #define PE1   (65+STM32F4X_ADC_NUM)
-#endif
-#if STM32F4X_PIN_NUM >= 144  //144 pins mcu, 114 gpio
-  #define PF0   (66+STM32F4X_ADC_NUM) //1:FSMC_A0 / I2C2_SDA
-  #define PF1   (67+STM32F4X_ADC_NUM) //1:FSMC_A1 / I2C2_SCL
-  #define PF2   (68+STM32F4X_ADC_NUM) //1:FSMC_A2
-  #define PF11  (69+STM32F4X_ADC_NUM)
-  #define PF12  (70+STM32F4X_ADC_NUM) //1:FSMC_A6
-  #define PF13  (71+STM32F4X_ADC_NUM) //1:FSMC_A7
-  #define PF14  (72+STM32F4X_ADC_NUM) //1:FSMC_A8
-  #define PF15  (73+STM32F4X_ADC_NUM) //1:FSMC_A9
-  #define PG0   (74+STM32F4X_ADC_NUM) //1:FSMC_A10
-  #define PG1   (75+STM32F4X_ADC_NUM) //1:FSMC_A11
-  #define PG2   (76+STM32F4X_ADC_NUM) //1:FSMC_A12
-  #define PG3   (77+STM32F4X_ADC_NUM) //1:FSMC_A13
-  #define PG4   (78+STM32F4X_ADC_NUM) //1:FSMC_A14
-  #define PG5   (79+STM32F4X_ADC_NUM) //1:FSMC_A15
-  #define PG6   (80+STM32F4X_ADC_NUM)
-  #define PG7   (81+STM32F4X_ADC_NUM)
-  #define PG8   (82+STM32F4X_ADC_NUM)
-  #define PG9   (83+STM32F4X_ADC_NUM) //1:USART6_RX
-  #define PG10  (84+STM32F4X_ADC_NUM) //1:FSMC_NE3
-  #define PG11  (85+STM32F4X_ADC_NUM)
-  #define PG12  (86+STM32F4X_ADC_NUM) //1:FSMC_NE4
-  #define PG13  (87+STM32F4X_ADC_NUM) //1:FSMC_A24
-  #define PG14  (88+STM32F4X_ADC_NUM) //1:FSMC_A25 / USART6_TX
-  #define PG15  (89+STM32F4X_ADC_NUM)
-#endif
-#if STM32F4X_PIN_NUM >= 176  //176 pins mcu, 140 gpio
-  #define PI8   (90+STM32F4X_ADC_NUM)
-  #define PI9   (91+STM32F4X_ADC_NUM)
-  #define PI10  (92+STM32F4X_ADC_NUM)
-  #define PI11  (93+STM32F4X_ADC_NUM)
-  #define PH2   (94+STM32F4X_ADC_NUM)
-  #define PH3   (95+STM32F4X_ADC_NUM)
-  #define PH4   (96+STM32F4X_ADC_NUM) //1:I2C2_SCL
-  #define PH5   (97+STM32F4X_ADC_NUM) //1:I2C2_SDA
-  #define PH6   (98+STM32F4X_ADC_NUM) //1:TIM12_CH1
-  #define PH7   (99+STM32F4X_ADC_NUM) //1:I2C3_SCL
-  #define PH8   (100+STM32F4X_ADC_NUM) //1:I2C3_SDA
-  #define PH9   (101+STM32F4X_ADC_NUM) //1:TIM12_CH2
-  #define PH10  (102+STM32F4X_ADC_NUM) //1:TIM5_CH1
-  #define PH11  (103+STM32F4X_ADC_NUM) //1:TIM5_CH2
-  #define PH12  (104+STM32F4X_ADC_NUM) //1:TIM5_CH3
-  #define PH13  (105+STM32F4X_ADC_NUM)
-  #define PH14  (106+STM32F4X_ADC_NUM)
-  #define PH15  (107+STM32F4X_ADC_NUM)
-  #define PI0   (108+STM32F4X_ADC_NUM) //1:TIM5_CH4 / SPI2_NSS
-  #define PI1   (109+STM32F4X_ADC_NUM) //1:SPI2_SCK
-  #define PI2   (110+STM32F4X_ADC_NUM) //1:TIM8_CH4 /SPI2_MISO
-  #define PI3   (111+STM32F4X_ADC_NUM) //1:SPI2_MOS
-  #define PI4   (112+STM32F4X_ADC_NUM)
-  #define PI5   (113+STM32F4X_ADC_NUM) //1:TIM8_CH1
-  #define PI6   (114+STM32F4X_ADC_NUM) //1:TIM8_CH2
-  #define PI7   (115+STM32F4X_ADC_NUM) //1:TIM8_CH3
-#endif
-
 
 // This must be a literal
 #define NUM_DIGITAL_PINS        (STM32F4X_GPIO_NUM)
@@ -211,7 +142,7 @@ extern "C" {
  * Changing this value from the default (1000) will affect the PWM output value of analogWrite (to a PWM pin)
  * Since the pin is toggled on capture, if you change the frequency of the timer you have to adapt the compare value (analogWrite thinks you did)
  */
-//#define PWM_FREQUENCY           20000
+//#define PWM_FREQUENCY           1000
 //The bottom values are the default and don't need to be redefined
 //#define PWM_RESOLUTION          8
 //#define PWM_MAX_DUTY_CYCLE      255

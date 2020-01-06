@@ -38,7 +38,6 @@ extern "C" {
 // This array allows to wrap Arduino pin number(Dx or x)
 // to STM32 PinName (PX_n)
 const PinName digitalPin[] = {
-#if STM32F4X_PIN_NUM >= 64  //64 pins mcu, 51 gpio
   PC_13, //D0
   PC_14, //D1  - OSC32_IN
   PC_15, //D2  - OSC32_OUT
@@ -90,18 +89,6 @@ const PinName digitalPin[] = {
   PC_3,  //D48/A13 - 1:SPI2_MOSI  2:ADC123_IN13
   PC_4,  //D49/A14 - 1:  2:ADC12_IN14
   PC_5,  //D50/A15 - 1:  2:ADC12_IN15
-  #if STM32F4X_PIN_NUM >= 144
-    PF_3,  //D51/A16 - 1:FSMC_A3  2:ADC3_IN9
-    PF_4,  //D52/A17 - 1:FSMC_A4  2:ADC3_IN14
-    PF_5,  //D53/A18 - 1:FSMC_A5  2:ADC3_IN15
-    PF_6,  //D54/A19 - 1:TIM10_CH1  2:ADC3_IN4
-    PF_7,  //D55/A20 - 1:TIM11_CH1  2:ADC3_IN5
-    PF_8,  //D56/A21 - 1:TIM13_CH1  2:ADC3_IN6
-    PF_9,  //D57/A22 - 1;TIM14_CH1  2:ADC3_IN7
-    PF_10, //D58/A23 - 2:ADC3_IN8
-  #endif
-#endif
-#if STM32F4X_PIN_NUM >= 100  //100 pins mcu, 82 gpio
   PE_2,  //D59 - 1:FSMC_A23
   PE_3,  //D60 - 1:FSMC_A19
   PE_4,  //D61 - 1:FSMC_A20
@@ -133,61 +120,6 @@ const PinName digitalPin[] = {
   PD_7,  //D87
   PE_0,  //D88
   PE_1,  //D89
-#endif
-#if STM32F4X_PIN_NUM >= 144  //144 pins mcu, 114 gpio
-  PF_0,  //D90 - 1:FSMC_A0 / I2C2_SDA
-  PF_1,  //D91 - 1:FSMC_A1 / I2C2_SCL
-  PF_2,  //D92 - 1:FSMC_A2
-  PF_11, //D93
-  PF_12, //D94 - 1:FSMC_A6
-  PF_13, //D95 - 1:FSMC_A7
-  PF_14, //D96 - 1:FSMC_A8
-  PF_15, //D97 - 1:FSMC_A9
-  PG_0,  //D98 - 1:FSMC_A10
-  PG_1,  //D99 - 1:FSMC_A11
-  PG_2,  //D100 - 1:FSMC_A12
-  PG_3,  //D101 - 1:FSMC_A13
-  PG_4,  //D102 - 1:FSMC_A14
-  PG_5,  //D103 - 1:FSMC_A15
-  PG_6,  //D104
-  PG_7,  //D105
-  PG_8,  //D106
-  PG_9,  //D107 - 1:USART6_RX
-  PG_10, //D108 - 1:FSMC_NE3
-  PG_11, //D109
-  PG_12, //D110 - 1:FSMC_NE4
-  PG_13, //D111 - 1:FSMC_A24
-  PG_14, //D112 - 1:FSMC_A25 / USART6_TX
-  PG_15, //D113
-#endif
-#if STM32F4X_PIN_NUM >= 176  //176 pins mcu, 140 gpio
-  PI_8,  //D114
-  PI_9,  //D115
-  PI_10, //D116
-  PI_11, //D117
-  PH_2,  //D118
-  PH_3,  //D119
-  PH_4,  //D120 - 1:I2C2_SCL
-  PH_5,  //D121 - 1:I2C2_SDA
-  PH_6,  //D122 - 1:TIM12_CH1
-  PH_7,  //D123 - 1:I2C3_SCL
-  PH_8,  //D124 - 1:I2C3_SDA
-  PH_9,  //D125 - 1:TIM12_CH2
-  PH_10, //D126 - 1:TIM5_CH1
-  PH_11, //D127 - 1:TIM5_CH2
-  PH_12, //D128 - 1:TIM5_CH3
-  PH_13, //D129
-  PH_14, //D130
-  PH_15, //D131
-  PI_0,  //D132 - 1:TIM5_CH4 / SPI2_NSS
-  PI_1,  //D133 - 1:SPI2_SCK
-  PI_2,  //D134 - 1:TIM8_CH4 /SPI2_MISO
-  PI_3,  //D135 - 1:SPI2_MOS
-  PI_4,  //D136
-  PI_5,  //D137 - 1:TIM8_CH1
-  PI_6,  //D138 - 1:TIM8_CH2
-  PI_7,  //D139 - 1:TIM8_CH3
-#endif
 };
 
 #ifdef __cplusplus
