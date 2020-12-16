@@ -19,7 +19,7 @@
  * -------------------
  *
  * Circuits At Home, LTD
- * Web      :  http://www.circuitsathome.com
+ * Web      :  https://www.circuitsathome.com
  * e-mail   :  support@circuitsathome.com
  */
 
@@ -116,7 +116,7 @@
         uint8_t iProduct; // Index of String Descriptor describing the product.
         uint8_t iSerialNumber; // Index of String Descriptor with the device's serial number.
         uint8_t bNumConfigurations; // Number of possible configurations.
-} __attribute__((packed)) USB_DEVICE_DESCRIPTOR;*/
+} __attribute__((packed)) USB_FD_DEVICE_DESCRIPTOR;
 
 /* Configuration descriptor structure */
 /*typedef struct {
@@ -128,10 +128,10 @@
         uint8_t iConfiguration; // Index of String Descriptor describing the configuration.
         uint8_t bmAttributes; // Configuration characteristics.
         uint8_t bMaxPower; // Maximum power consumed by this configuration.
-} __attribute__((packed)) USB_CONFIGURATION_DESCRIPTOR;*/
+} __attribute__((packed)) USB_FD_CONFIGURATION_DESCRIPTOR;
 
 /* Interface descriptor structure */
-/*typedef struct {
+typedef struct {
         uint8_t bLength; // Length of this descriptor.
         uint8_t bDescriptorType; // INTERFACE descriptor type (USB_DESCRIPTOR_INTERFACE).
         uint8_t bInterfaceNumber; // Number of this interface (0 based).
@@ -141,17 +141,17 @@
         uint8_t bInterfaceSubClass; // Subclass code (assigned by the USB-IF).
         uint8_t bInterfaceProtocol; // Protocol code (assigned by the USB-IF).  0xFF-Vendor specific.
         uint8_t iInterface; // Index of String Descriptor describing the interface.
-} __attribute__((packed)) USB_INTERFACE_DESCRIPTOR;*/
+} __attribute__((packed)) USB_FD_INTERFACE_DESCRIPTOR;
 
 /* Endpoint descriptor structure */
-/*typedef struct {
+typedef struct {
         uint8_t bLength; // Length of this descriptor.
         uint8_t bDescriptorType; // ENDPOINT descriptor type (USB_DESCRIPTOR_ENDPOINT).
         uint8_t bEndpointAddress; // Endpoint address. Bit 7 indicates direction (0=OUT, 1=IN).
         uint8_t bmAttributes; // Endpoint transfer type.
         uint16_t wMaxPacketSize; // Maximum packet size.
         uint8_t bInterval; // Polling interval in frames.
-} __attribute__((packed)) USB_ENDPOINT_DESCRIPTOR;*/
+} __attribute__((packed)) USB_FD_ENDPOINT_DESCRIPTOR;
 
 /* HID descriptor */
 typedef struct {
