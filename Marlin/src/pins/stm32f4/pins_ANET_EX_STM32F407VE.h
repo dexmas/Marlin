@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#if !defined(STM32F4) && !defined(STM32F4xx)
+#if NOT_TARGET(STM32F4, STM32F4xx)
   #error "Oops! Select an STM32F4 board in 'Tools > Board.'"
 #elif HOTENDS > 2 || E_STEPPERS > 2
   #error "STM32F4VET6 supports up to 2 hotends / E-steppers."
@@ -33,13 +33,14 @@
 
 #define DEFAULT_MACHINE_NAME "AnetEX"
 
-#define DISABLE_DEBUG
-
-#define FLASH_EEPROM_EMULATION
+#define SDCARD_EEPROM_EMULATION
+//#define FLASH_EEPROM_EMULATION
+#ifdef FLASH_EEPROM_EMULATION
 #define EEPROM_PAGE_SIZE     uint16_t(0x800) // 2KB
 #define EEPROM_START_ADDRESS uint32_t(0x8000000 + (STM32_FLASH_SIZE) * 1024 - 2 * EEPROM_PAGE_SIZE)
 #undef  E2END
 #define E2END                (EEPROM_PAGE_SIZE - 1) // 2KB
+#endif
 
 //
 // Servos
