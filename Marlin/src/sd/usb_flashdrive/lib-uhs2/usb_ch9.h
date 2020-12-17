@@ -101,7 +101,7 @@
 /* descriptor data structures */
 
 /* Device descriptor structure */
-/*typedef struct {
+typedef struct {
         uint8_t bLength; // Length of this descriptor.
         uint8_t bDescriptorType; // DEVICE descriptor type (USB_DESCRIPTOR_DEVICE).
         uint16_t bcdUSB; // USB Spec Release Number (BCD).
@@ -119,7 +119,7 @@
 } __attribute__((packed)) USB_FD_DEVICE_DESCRIPTOR;
 
 /* Configuration descriptor structure */
-/*typedef struct {
+typedef struct {
         uint8_t bLength; // Length of this descriptor.
         uint8_t bDescriptorType; // CONFIGURATION descriptor type (USB_DESCRIPTOR_CONFIGURATION).
         uint16_t wTotalLength; // Total length of all descriptors for this configuration.
