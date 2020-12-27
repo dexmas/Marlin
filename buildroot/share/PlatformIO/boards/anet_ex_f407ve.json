@@ -4,41 +4,13 @@
     "cpu": "cortex-m4",
     "extra_flags": "-DSTM32F407xx",
     "f_cpu": "168000000L",
-    "hwids": [
-      [
-        "0x1EAF",
-        "0x0003"
-      ],
-      [
-        "0x0483",
-        "0x3748"
-      ]
-    ],
     "mcu": "stm32f407vet6",
     "variant": "ANET_EX_F407VE"
   },
   "debug": {
     "jlink_device": "STM32F407VE",
     "openocd_target": "stm32f4x",
-    "svd_path": "STM32F40x.svd",
-    "tools": {
-      "stlink": {
-        "server": {
-          "arguments": [
-            "-f",
-            "scripts/interface/stlink.cfg",
-            "-c",
-            "transport select hla_swd",
-            "-f",
-            "scripts/target/stm32f4x.cfg",
-            "-c",
-            "reset_config none"
-          ],
-          "executable": "bin/openocd",
-          "package": "tool-openocd"
-        }
-      }
-    }
+    "svd_path": "STM32F40x.svd"
   },
   "frameworks": [
     "arduino",
@@ -48,12 +20,10 @@
   "upload": {
     "disable_flushing": false,
     "maximum_ram_size": 131072,
-    "maximum_size": 514288,
+    "maximum_size": 524288,
     "protocol": "stlink",
     "protocols": [
-      "stlink",
-      "dfu",
-      "jlink"
+      "stlink"
     ],
     "require_upload_port": true,
     "use_1200bps_touch": false,
