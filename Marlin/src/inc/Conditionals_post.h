@@ -552,7 +552,7 @@
   #endif
 
   #if HAS_SD_DETECT && NONE(HAS_GRAPHICAL_TFT, LCD_USE_DMA_FSMC, HAS_FSMC_GRAPHICAL_TFT, HAS_SPI_GRAPHICAL_TFT, IS_DWIN_MARLINUI, EXTENSIBLE_UI, HAS_DWIN_E3V2)
-    #define REINIT_NOISY_LCD 1  // Have the LCD re-init on SD insertion
+    #define REINIT_NOISY_LCD 0  // Have the LCD re-init on SD insertion
   #endif
 
 #endif
