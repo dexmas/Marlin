@@ -23,6 +23,10 @@
 
 #include <stdint.h>
 
+#include "../inc/MarlinConfig.h"
+
+#if ENABLED(SPI_FLASH)
+
 #include HAL_PATH(../HAL, MarlinSPI.h)
 
 #define W25X_WriteEnable        0x06
@@ -72,3 +76,5 @@ public:
 };
 
 extern W25QXXFlash W25QXX;
+
+#endif

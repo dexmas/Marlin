@@ -192,18 +192,18 @@
 // SD Connection
 //
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION              LCD
+  #define SDCARD_CONNECTION              CUSTOM_CABLE
 #endif
 
 /**
- *                ------                                    ------
- * (BEEPER) PA8  | 1  2 | PC8  (BTN_ENC)  (MISO)      PC11 | 1  2 | PC10 (SCK)
- * (LCD_EN) PD8  | 3  4 | PD9  (LCD_RS)   (BTN_EN1)   PA11 | 3  4 | PA15 (SD_SS)
- * (LCD_D4) PD11 | 5  6   PC9  (LCD_D5)   (BTN_EN2)   PD10 | 5  6   PC12 (MOSI)
- * (LCD_D6) PA9  | 7  8 | PA10 (LCD_D7)   (SD_DETECT) PA12 | 7  8 | RESET
- *           GND | 9 10 | 5V                          GND  | 9 10 | --
- *                ------                                    ------
- *                 EXP1                                      EXP2
+ *                   ------                                              ------
+ *     (BEEPER) PA8 | 1  2 | PC8  (BTN_ENC)                 (MISO) PC11 | 1  2 | PC10 (SCK)
+ *     (LCD_EN) PD8 | 3  4 | PD9  (LCD_RS)               (BTN_EN1) PA11 | 3  4 | PA15 (SD_SS/MKS_IO4)
+ *    (LCD_D4) PD11 | 5  6   PC9  (LCD_D5)               (BTN_EN2) PD10 | 5  6   PC12 (MOSI)
+ *  (LCD_D6/TX) PA9 | 7  8 | PA10 (LCD_D7/RX)  (SD_DETECT/MKS_RST) PA12 | 7  8 | RESET
+ *              GND | 9 10 | 5V                                     GND | 9 10 | --
+ *                   ------                                         ------
+ *                    EXP1                                           EXP2
  */
 #define EXP1_01_PIN                         PA8
 #define EXP1_02_PIN                         PC8
@@ -226,12 +226,14 @@
 //
 // SD card. Hardware SPI3
 //
-#define SDSS                       EXP2_04_PIN
-#define SD_SS_PIN                         SDSS
-#define SD_SCK_PIN                 EXP2_02_PIN
-#define SD_MISO_PIN                EXP2_01_PIN
-#define SD_MOSI_PIN                EXP2_06_PIN
-#define SD_DETECT_PIN              EXP2_07_PIN
+#if SD_CONNECTION_IS(LCD)
+  #define SDSS                       EXP2_04_PIN
+  #define SD_SS_PIN                         SDSS
+  #define SD_SCK_PIN                 EXP2_02_PIN
+  #define SD_MISO_PIN                EXP2_01_PIN
+  #define SD_MOSI_PIN                EXP2_06_PIN
+  #define SD_DETECT_PIN              EXP2_07_PIN
+#endif
 
 //
 // LCDs and Controllers
@@ -266,18 +268,14 @@
 
   #else
 
-    #define LCD_PINS_RS              EXP1_04_PIN
-
     #define BTN_EN1                  EXP2_03_PIN
     #define BTN_EN2                  EXP2_05_PIN
 
-    #define LCD_PINS_ENABLE          EXP1_03_PIN
-    #define LCD_PINS_D4              EXP1_05_PIN
-
     #if ENABLED(FYSETC_MINI_12864)
+      #define DOGLCD_SCK             EXP2_02_PIN
+      #define DOGLCD_MOSI            EXP2_06_PIN
       #define DOGLCD_CS              EXP1_03_PIN
       #define DOGLCD_A0              EXP1_04_PIN
-      //#define LCD_BACKLIGHT_PIN           -1
       #define LCD_RESET_PIN          EXP1_05_PIN  // Must be high or open for LCD to operate normally.
       #if ENABLED(FYSETC_MINI_12864_2_1)
         #define NEOPIXEL_PIN         EXP1_06_PIN
@@ -332,3 +330,18 @@
 #ifndef NEOPIXEL_PIN
   #define NEOPIXEL_PIN                      PC9
 #endif
+
+//
+// MKS WIFI
+//
+#define MKS_WIFI
+
+#ifdef MKS_WIFI
+  #define MKS_WIFI_SERIAL_NUM                SERIAL_PORT_2
+  #define MKS_WIFI_SERIAL_BAUDRATE           115200
+  #undef  PLATFORM_M997_SUPPORT
+
+  #define MKS_WIFI_IO4                       EXP2_04_PIN
+  #define MKS_WIFI_IO_RST                    EXP2_07_PIN
+#endif
+

@@ -252,6 +252,10 @@
   #include "tests/marlin_tests.h"
 #endif
 
+#if ENABLED(MKS_WIFI)
+  #include "module/mks_wifi/mks_wifi.h"
+#endif
+
 PGMSTR(M112_KILL_STR, "M112 Shutdown");
 
 MarlinState marlin_state = MF_INITIALIZING;
@@ -1639,6 +1643,9 @@ void setup() {
     SETUP_RUN(test_tmc_connection());
   #endif
 
+  #if ENABLED(MKS_WIFI)
+    mks_wifi_init();
+  #endif
   #if ENABLED(BD_SENSOR)
     SETUP_RUN(bdl.init(I2C_BD_SDA_PIN, I2C_BD_SCL_PIN, I2C_BD_DELAY));
   #endif

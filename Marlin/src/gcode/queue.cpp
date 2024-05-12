@@ -57,6 +57,10 @@ GCodeQueue queue;
   #include "../feature/repeat.h"
 #endif
 
+#if ENABLED(MKS_WIFI)
+  #include "../module/mks_wifi/mks_wifi.h"
+#endif
+
 // Frequently used G-code strings
 PGMSTR(G28_STR, "G28");
 
@@ -434,6 +438,17 @@ void GCodeQueue::get_serial_commands() {
       hadData = true;
 
       const int c = read_serial(p);
+      
+#ifdef MKS_WIFI
+      // Если данные от WIFI модуля пропускаем через парсер бинарного протокола. 
+      // текстовую часть с G-Code пропускаем дальше 
+      if(p == MKS_WIFI_SERIAL_NUM){
+        mks_wifi_input(c);
+        continue;
+      };
+#endif
+
+      
       if (c < 0) {
         // This should never happen, let's log it
         PORT_REDIRECT(SERIAL_PORTMASK(p));     // Reply to the serial port that sent the command
